@@ -24531,7 +24531,8 @@ function (_Component) {
     }
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Counter)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      count: 0
+      count: 0,
+      tags: ["tag1", "tag2", "tag3", "tag4"]
     }, _this.handleChange = function () {
       _this.setState(function (prevState) {
         return {
@@ -24728,7 +24729,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53887" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56795" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
