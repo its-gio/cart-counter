@@ -24504,13 +24504,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 var Counter =
 /*#__PURE__*/
@@ -24518,34 +24518,33 @@ function (_Component) {
   _inherits(Counter, _Component);
 
   function Counter() {
+    var _getPrototypeOf2;
+
     var _this;
+
+    var _temp;
 
     _classCallCheck(this, Counter);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Counter).call(this));
-    _this.state = {
-      count: 0
-    };
-    _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_assertThisInitialized(_this)));
-    return _this;
-  }
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-  _createClass(Counter, [{
-    key: "handleChange",
-    value: function handleChange() {
-      this.setState(function (prevState) {
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Counter)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      count: 0
+    }, _this.handleChange = function () {
+      _this.setState(function (prevState) {
         return {
           count: prevState.count + 1
         };
       });
-    }
-  }, {
-    key: "formatCount",
-    value: function formatCount() {
-      var count = this.state.count;
+    }, _this.formatCount = function () {
+      var count = _this.state.count;
       return count == 0 ? "Zero" : count;
-    }
-  }, {
+    }, _temp));
+  }
+
+  _createClass(Counter, [{
     key: "render",
     value: function render() {
       return _react.default.createElement("div", null, _react.default.createElement("span", null, this.formatCount()), _react.default.createElement("button", {
@@ -24641,7 +24640,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _Counter = _interopRequireDefault(require("./components/Counter"));
+var _Counter = _interopRequireDefault(require("./components/Counter.jsx"));
 
 require("./index.scss");
 
@@ -24690,7 +24689,7 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./components/Counter":"components/Counter.jsx","./index.scss":"index.scss"}],"index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./components/Counter.jsx":"components/Counter.jsx","./index.scss":"index.scss"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -24729,7 +24728,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50109" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53887" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
