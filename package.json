@@ -22,6 +22,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-core": "^6.26.3"
+    "babel-core": "^6.26.3",
+    "sass": "^1.15.2"
   }
 }
