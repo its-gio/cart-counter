@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Counter from "./components/Counter.jsx";
+import Counters from "./components/Counters.jsx";
 import "./index.scss";
 
 class App extends Component {
   render() {
-    return <Counter />;
+    return <Counters />;
   }
 }
 
