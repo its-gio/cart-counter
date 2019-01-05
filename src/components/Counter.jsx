@@ -1,18 +1,8 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = {
-    value: this.props.value
-  };
-
-  handleChange = () => {
-    this.setState(prevState => {
-      return { value: prevState.value + 1 };
-    });
-  };
-
   formatCount = () => {
-    const { value } = this.state;
+    const { value } = this.props.counter;
     return value == 0 ? "Zero" : value;
   };
 
@@ -20,8 +10,12 @@ class Counter extends Component {
     return (
       <div>
         <span>{this.formatCount()}</span>
-        <button onClick={this.handleChange}>+</button>
-        <button onClick={() => this.props.delete(this.props.id)}>Delete</button>
+        <button onClick={() => this.props.increment(this.props.counter)}>
+          +
+        </button>
+        <button onClick={() => this.props.delete(this.props.counter.id)}>
+          Delete
+        </button>
       </div>
     );
   }

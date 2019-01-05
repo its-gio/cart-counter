@@ -24530,16 +24530,8 @@ function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Counter)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      value: _this.props.value
-    }, _this.handleChange = function () {
-      _this.setState(function (prevState) {
-        return {
-          value: prevState.value + 1
-        };
-      });
-    }, _this.formatCount = function () {
-      var value = _this.state.value;
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Counter)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.formatCount = function () {
+      var value = _this.props.counter.value;
       return value == 0 ? "Zero" : value;
     }, _temp));
   }
@@ -24550,10 +24542,12 @@ function (_Component) {
       var _this2 = this;
 
       return _react.default.createElement("div", null, _react.default.createElement("span", null, this.formatCount()), _react.default.createElement("button", {
-        onClick: this.handleChange
+        onClick: function onClick() {
+          return _this2.props.increment(_this2.props.counter);
+        }
       }, "+"), _react.default.createElement("button", {
         onClick: function onClick() {
-          return _this2.props.delete(_this2.props.id);
+          return _this2.props.delete(_this2.props.counter.id);
         }
       }, "Delete"));
     }
@@ -24630,6 +24624,17 @@ function (_Component) {
         id: 4,
         value: 0
       }]
+    }, _this.handleIncrement = function (counter) {
+      _this.setState(function (prevState) {
+        var counters = prevState.counters; // finding index button clicked counter in state array
+
+        var index = counters.indexOf(counter);
+        counters[index] = counter;
+        counters[index].value++;
+        return {
+          counters: counters
+        };
+      });
     }, _this.handleDelete = function (id) {
       var counters = _this.state.counters.filter(function (x) {
         return x.id !== id;
@@ -24649,9 +24654,9 @@ function (_Component) {
       return _react.default.createElement("div", null, this.state.counters.map(function (counter) {
         return _react.default.createElement(_Counter.default, {
           key: counter.id,
-          id: counter.id,
+          counter: counter,
           "delete": _this2.handleDelete,
-          value: counter.value
+          increment: _this2.handleIncrement
         });
       }));
     }
@@ -24832,7 +24837,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62669" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58166" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
