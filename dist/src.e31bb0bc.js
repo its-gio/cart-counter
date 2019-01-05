@@ -24631,7 +24631,13 @@ function (_Component) {
         value: 0
       }]
     }, _this.handleDelete = function (id) {
-      console.log(id);
+      var counters = _this.state.counters.filter(function (x) {
+        return x.id !== id;
+      });
+
+      _this.setState({
+        counters: counters
+      });
     }, _temp));
   }
 
