@@ -24531,16 +24531,16 @@ function (_Component) {
     }
 
     return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Counter)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
-      count: 0
+      value: _this.props.value
     }, _this.handleChange = function () {
       _this.setState(function (prevState) {
         return {
-          count: prevState.count + 1
+          value: prevState.value + 1
         };
       });
     }, _this.formatCount = function () {
-      var count = _this.state.count;
-      return count == 0 ? "Zero" : count;
+      var value = _this.state.value;
+      return value == 0 ? "Zero" : value;
     }, _temp));
   }
 
@@ -24598,15 +24598,44 @@ function (_Component) {
   _inherits(Counters, _Component);
 
   function Counters() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    var _temp;
+
     _classCallCheck(this, Counters);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Counters).apply(this, arguments));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _possibleConstructorReturn(_this, (_temp = _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(Counters)).call.apply(_getPrototypeOf2, [this].concat(args))), _this.state = {
+      counters: [{
+        id: 1,
+        value: 0
+      }, {
+        id: 2,
+        value: 0
+      }, {
+        id: 3,
+        value: 0
+      }, {
+        id: 4,
+        value: 0
+      }]
+    }, _temp));
   }
 
   _createClass(Counters, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_Counter.default, null));
+      return _react.default.createElement("div", null, this.state.counters.map(function (counter) {
+        return _react.default.createElement(_Counter.default, {
+          key: counter.id,
+          value: counter.value
+        });
+      }));
     }
   }]);
 
@@ -24785,7 +24814,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56795" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62669" + '/');
 
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
