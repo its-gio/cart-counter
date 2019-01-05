@@ -24547,9 +24547,15 @@ function (_Component) {
   _createClass(Counter, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return _react.default.createElement("div", null, _react.default.createElement("span", null, this.formatCount()), _react.default.createElement("button", {
         onClick: this.handleChange
-      }, "+"));
+      }, "+"), _react.default.createElement("button", {
+        onClick: function onClick() {
+          return _this2.props.delete(_this2.props.id);
+        }
+      }, "Delete"));
     }
   }]);
 
@@ -24624,15 +24630,21 @@ function (_Component) {
         id: 4,
         value: 0
       }]
+    }, _this.handleDelete = function (id) {
+      console.log(id);
     }, _temp));
   }
 
   _createClass(Counters, [{
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return _react.default.createElement("div", null, this.state.counters.map(function (counter) {
         return _react.default.createElement(_Counter.default, {
           key: counter.id,
+          id: counter.id,
+          "delete": _this2.handleDelete,
           value: counter.value
         });
       }));

@@ -21,6 +21,7 @@ class Counter extends Component {
       <div>
         <span>{this.formatCount()}</span>
         <button onClick={this.handleChange}>+</button>
+        <button onClick={() => this.props.delete(this.props.id)}>Delete</button>
       </div>
     );
   }
